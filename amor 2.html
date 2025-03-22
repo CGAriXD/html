@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Me amas?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: pink;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 24px;
+        }
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        #yes, #no {
+            font-size: 18px;
+            padding: 15px 25px;
+            border: none;
+            cursor: pointer;
+            width: 200px;
+        }
+        #yes {
+            background-color: green;
+            color: white;
+        }
+        #no {
+            background-color: red;
+            color: white;
+        }
+        #message {
+            display: none;
+            font-size: 24px;
+            color: darkred;
+            margin-top: 20px;
+        }
+        #heart {
+            display: none;
+            width: 90%;
+            max-width: 400px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>¿Me amas? ❤️</h1>
+    <div class="buttons">
+        <button id="yes" onclick="showLove()">Sí</button>
+        <button id="no" onclick="growYes()">No</button>
+    </div>
+    <p id="message">¡Sabía que estaríamos juntos por siempre, te amo mi Rebequita hermosa! 💙🧡💜</p>
+    <img id="heart" src="https://media1.tenor.com/m/l6xbERmJvn4AAAAd/timebomb-kissing-arcane-ekko-and-powder-jinx-kissing-arcane.gif" alt="Corazón animado">
+
+    <script>
+        let yesSize = 18;
+        let noSize = 18;
+        let noTexts = [
+            "¿Seguro?", "¿Estás completamente segura?", "Piénsalo bien...", "¿De verdad?", "😢", 
+            "No me hagas esto...", "¿Acaso no recuerdas los momentos hermosos juntos?", 
+            "Voy a llorar 😭", "Dime que es una broma", "No juegues con mis sentimientos 💔", 
+            "Si presionas otra vez, mi corazón se romperá...", "¿Y nuestro futuro juntos?", 
+            "Mira lo pequeño que me estoy haciendo...", "Te doy otra oportunidad...", 
+            "Voy a desaparecer...", "Me duele en el alma 😞", "¿Por qué harías esto?", 
+            "Ya no sé qué pensar...", "Todavía estás a tiempo de cambiar de opinión...", 
+            "Última oportunidad...", "Sabes que en el fondo me amas", 
+            "Si sigues presionando, desapareceré para siempre...", 
+            "No hay vuelta atrás...", "😔", "Duele mucho...", "Recuerda nuestro primer beso", 
+            "Acuérdate de nuestras risas", "Piensa en los abrazos cálidos", 
+            "¿Realmente no sientes nada por mí?", "¿Qué hago sin ti?", 
+            "Mi mundo sin ti se derrumba...", "¡Por favor, no lo hagas!", 
+            "Voy a escribirte una carta de despedida...", "Mi corazón se rompe en pedazos...", 
+            "No me dejes en la friendzone 😭", "Si me dejas, ¿quién te hará reír como yo?", 
+            "Mis días serán grises sin ti...", "Tú eres mi sol, no me dejes en la oscuridad", 
+            "Dime que todo esto es un sueño...", "No lo puedo creer...", 
+            "Si me amas, dame una señal...", "Este es el final?", "Por favor, deja de decir que no..."
+        ];
+        let noIndex = 0;
+        
+        function growYes() {
+            yesSize += 10;
+            document.getElementById('yes').style.fontSize = yesSize + 'px';
+            
+            if (noSize > 10) {
+                noSize -= 2;
+                document.getElementById('no').style.fontSize = noSize + 'px';
+            }
+            
+            if (noIndex < noTexts.length) {
+                document.getElementById('no').innerText = noTexts[noIndex];
+                noIndex++;
+            }
+        }
+        
+        function showLove() {
+            document.getElementById('message').style.display = 'block';
+            document.getElementById('heart').style.display = 'block';
+            document.querySelector('.buttons').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
